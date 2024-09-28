@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -12,7 +15,9 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "nxCloudId": "66f77440464b9a779a99d3c0",
   "plugins": [
@@ -35,7 +40,9 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/nestjs-for-practice-e2e/**/*"]
+      "exclude": [
+        "apps/jobis-n-villains-e2e/**/*"
+      ]
     }
   ]
 }

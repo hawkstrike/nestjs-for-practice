@@ -1,24 +1,26 @@
 {
-  "name": "nestjs-for-practice",
+  "name": "jobis-n-villains",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/nestjs-for-practice/src",
+  "sourceRoot": "apps/jobis-n-villains/src",
   "projectType": "application",
   "tags": [],
   "targets": {
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
-        "buildTarget": "nestjs-for-practice:build",
+        "buildTarget": "jobis-n-villains:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "nestjs-for-practice:build:development"
+          "buildTarget": "jobis-n-villains:build:development"
         },
         "production": {
-          "buildTarget": "nestjs-for-practice:build:production"
+          "buildTarget": "jobis-n-villains:build:production"
         }
       }
     }

@@ -1,5 +1,5 @@
 export default {
-  displayName: 'nestjs-for-practice-e2e',
+  displayName: 'jobis-n-villains-e2e',
   preset: '../../jest.preset.js',
   globalSetup: '<rootDir>/src/support/global-setup.ts',
   globalTeardown: '<rootDir>/src/support/global-teardown.ts',
@@ -14,5 +14,5 @@ export default {
     ],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/nestjs-for-practice-e2e',
+  coverageDirectory: '../../coverage/jobis-n-villains-e2e',
 };
