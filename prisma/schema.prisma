@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model WhiteList {
+  id       Int    @id @default(autoincrement()) // PK
+  name     String // 사용자 이름
+  regNo    String // 사용자 주민등록번호
+  regNoIv  String // 주민등록번호 암호화 IV
+}
+
+model Account {
+  id          Int     @id @default(autoincrement()) // PK
+  userId      String  // 사용자 아이디
+  password    String  // 사용자 비밀번호
+  name        String  // 사용자 이름
+  regNo       String  // 사용자 주민등록번호
+  regNoIv     String  // 사용자 주민등록번호 암호화 IV
+  isActivated Boolean @default(true) // 사용자 활성화 여부
+}
