@@ -42,5 +42,4 @@ Thumbs.db
 .nx/workspace-data
 
 # Prisma
-prisma/migrations
-prisma/dev.db*
+prisma/*
