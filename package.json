@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "migration": "prisma migrate dev",
+    "reset": "prisma migrate reset",
     "build": "nx run-many -t build --all",
     "serve": "nx run-many -t serve --all",
     "lint": "nx run-many -t lint --all"
