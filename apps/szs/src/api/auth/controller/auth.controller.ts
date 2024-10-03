@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AuthService } from '../service/auth.service';
 
 @Controller('auth')
@@ -8,16 +8,10 @@ export class AuthController {
   ) { }
 
   @Get()
-  async encrypt(@Param('text') text: string) {
+  async encrypt(@Query('text') text: string) {
     const { encryptedText, iv } = await this.authService.encrypt(text);
-
-    console.log('encryptedText :', encryptedText);
-    console.log('iv :', iv);
-
     const decryptedText = await this.authService.decrypt(encryptedText, iv);
 
-    console.log('decryptedText :', decryptedText);
-
-    return true;
+    return { encryptedText, iv, decryptedText };
   }
 }
