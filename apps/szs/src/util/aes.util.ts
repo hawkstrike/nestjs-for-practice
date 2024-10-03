@@ -1,4 +1,4 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as crypto from 'crypto';
 
@@ -17,9 +17,6 @@ export class AESUtil {
       const key = Buffer.from(this.secretKey, 'utf-8');
       const ivBuffer = Buffer.from(iv, 'base64');
       const cipher = crypto.createCipheriv(this.algorithm, key, ivBuffer);
-      /* let encrypted = cipher.update(text, 'utf-8', 'base64');
-      encrypted += cipher.final('base64');
-      return encrypted; */
 
       return Buffer.concat([cipher.update(text), cipher.final()]).toString('base64');
     } catch (e) {
@@ -32,9 +29,6 @@ export class AESUtil {
       const key = Buffer.from(this.secretKey, 'utf-8');
       const ivBuffer = Buffer.from(iv, 'base64');
       const decipher = crypto.createDecipheriv(this.algorithm, key, ivBuffer);
-      /* let decrypted = decipher.update(encryptedText, 'base64', 'utf-8');
-      decrypted += decipher.final('utf-8');
-      return decrypted; */
 
       return Buffer.concat([decipher.update(encryptedText, 'base64'), decipher.final()]).toString();
     } catch (e) {
