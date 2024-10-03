@@ -20,6 +20,7 @@
     ]
   },
   "nxCloudId": "66f77440464b9a779a99d3c0",
+  "neverConnectToCloud": true,
   "plugins": [
     {
       "plugin": "@nx/webpack/plugin",
