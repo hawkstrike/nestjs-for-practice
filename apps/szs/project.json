@@ -1,0 +1,26 @@
+{
+  "name": "szs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/szs/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "szs:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "szs:build:development"
+        },
+        "production": {
+          "buildTarget": "szs:build:production"
+        }
+      }
+    }
+  }
+}
