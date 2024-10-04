@@ -7,8 +7,11 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
+import { execSync } from 'child_process';
 
 async function bootstrap() {
+  execSync('yarn prisma:db-push'); // Prisma의 db push 스크립트 실행
+
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'szs';
 

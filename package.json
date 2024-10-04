@@ -8,7 +8,8 @@
     "build": "nx run-many -t build --all",
     "serve": "nx run-many -t serve --all",
     "lint": "nx run-many -t lint --all",
-    "szs:serve": "nx run szs:serve:development"
+    "prisma:db-push": "prisma db push --force-reset",
+    "serve:szs": "nx run szs:serve:development"
   },
   "private": true,
   "dependencies": {
