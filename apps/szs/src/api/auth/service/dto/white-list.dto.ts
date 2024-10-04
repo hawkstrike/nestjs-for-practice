@@ -6,6 +6,13 @@ export class WhiteListDTO {
   regNo: string;
   regNoIv: string;
 
+  constructor (id: number, name: string, regNo: string, regNoIv: string) {
+    this.id = id;
+    this.name = name;
+    this.regNo = regNo;
+    this.regNoIv = regNoIv;
+  }
+
   static fromEntity(whiteList: WhiteList): WhiteListDTO {
     return {
       id: whiteList.id,

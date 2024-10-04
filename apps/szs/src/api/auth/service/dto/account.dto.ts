@@ -13,21 +13,41 @@ export class AccountDTO {
   createDate: string;
   updateDate: string;
 
+  constructor (
+    id: number,
+    userId: string,
+    password: string,
+    name: string,
+    regNo: string,
+    regNoIv: string,
+    isActivated: boolean,
+    createDate: string,
+    updateDate: string
+  ) {
+    this.id = id;
+    this.userId = userId;
+    this.password = password;
+    this.name = name;
+    this.regNo = regNo;
+    this.regNoIv = regNoIv;
+    this.isActivated = isActivated;
+    this.createDate = createDate;
+    this.updateDate = updateDate;
+  }
+
   static of(dto: AuthSignUpRequestDTO | AuthLoginRequestDTO): AccountDTO {
-    if (dto instanceof AuthSignUpRequestDTO) {
+    if ('name' in dto && 'regNo' in dto) {
       return {
         userId: dto.userId.trim(),
         password: dto.password.trim(),
         name: dto.name.trim(),
         regNo: dto.regNo.trim(),
       } as AccountDTO;
-    } else if (dto instanceof AuthLoginRequestDTO) {
+    } else {
       return {
         userId: dto.userId.trim(),
         password: dto.password.trim(),
       } as AccountDTO;
-    } else {
-      throw new Error('Unknown DTO type');
     }
   }
 
