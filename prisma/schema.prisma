@@ -18,6 +18,8 @@ model WhiteList {
   name     String // 사용자 이름
   regNo    String @map("reg_no") // 사용자 주민등록번호
   regNoIv  String @map("reg_no_iv") // 주민등록번호 암호화 IV
+
+  @@map("white_list")
 }
 
 model Account {
@@ -30,5 +32,7 @@ model Account {
   isActivated Boolean @default(true) @map("is_activated") // 사용자 활성화 여부
   createDate  DateTime @default(now()) @map("create_date") // 생성 날짜
   updateDate  DateTime @updatedAt @map("update_date") // 수정 날짜
+
+  @@map("account")
 }
 
