@@ -5,10 +5,27 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "build": {
+      "options": {
+        "transformers": [
+          "typia/lib/transform",
+          {
+            "name": "@nestia/core/lib/transform",
+            "options": {
+              "validate": "assert",
+              "stringify": "assert"
+            }
+          },
+          "@nestia/sdk/lib/transform"
+        ]
+      }
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "buildTarget": "szs:build",
         "runBuildTargetDependencies": false
