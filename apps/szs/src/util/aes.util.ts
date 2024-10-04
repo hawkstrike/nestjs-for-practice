@@ -8,8 +8,8 @@ export class AESUtil {
   private algorithm: string;
 
   constructor (private configService: ConfigService) {
-    this.secretKey = this.configService.get<string>('aes.secret.key');
-    this.algorithm = this.configService.get<string>('aes.algorithm');
+    this.secretKey = this.configService.get<string>('aes.secret.key') || '';
+    this.algorithm = this.configService.get<string>('aes.algorithm') || '';
   }
 
   encrypt(text: string, iv: string): string {
@@ -20,7 +20,7 @@ export class AESUtil {
 
       return Buffer.concat([cipher.update(text), cipher.final()]).toString('base64');
     } catch (e) {
-      throw new Error(e.message);
+      throw new Error((e as Error).message);
     }
   }
 
@@ -32,7 +32,7 @@ export class AESUtil {
 
       return Buffer.concat([decipher.update(encryptedText, 'base64'), decipher.final()]).toString();
     } catch (e) {
-      throw new Error(e.message);
+      throw new Error((e as Error).message);
     }
   }
 
