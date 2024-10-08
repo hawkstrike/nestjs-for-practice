@@ -8,6 +8,7 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
 import { execSync } from 'child_process';
+import { HttpExceptionFilter } from './filter/http-exception.filter';
 
 async function bootstrap() {
   execSync('yarn prisma:db-push'); // Prisma의 db push 스크립트 실행
@@ -16,6 +17,7 @@ async function bootstrap() {
   const globalPrefix = 'szs';
 
   app.setGlobalPrefix(globalPrefix);
+  app.useGlobalFilters(new HttpExceptionFilter());
   app.enableShutdownHooks();
 
   const port = process.env.PORT || 3000;
